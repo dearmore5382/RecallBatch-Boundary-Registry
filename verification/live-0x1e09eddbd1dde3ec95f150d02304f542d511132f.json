@@ -1,0 +1,265 @@
+{
+  "contract": "0x1E09EDDbd1dde3eC95f150D02304f542d511132F",
+  "source_sha256": "48ae82af9846e4e9fcfed307483bfab4ee448da0a9e5dda2cf01087aedfc5378",
+  "fixture_commit": "a7a2a800a45553fed12ab75b9affd46ed79c0f11",
+  "wallets": [
+    "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+    "0xA63DE24e30C88FB1019E8956654730316e36eDBE"
+  ],
+  "steps": [
+    {
+      "id": "F1-untrusted-publish",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "register_recall",
+      "args": [
+        "https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/3c232aedd36da5cb0b896b5aff7dd2527a32aa91/test-fixtures/recall-eu.json",
+        "32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f"
+      ],
+      "expected": "PUBLISHER_ONLY",
+      "status": "VERIFIED",
+      "hash": "0x8bf985d0b5283ea611db2a3d9b26b96a32dc3f6541c7626faecc36023c10f137",
+      "actual": "PUBLISHER_ONLY",
+      "readback": {
+        "counts": "0|0"
+      }
+    },
+    {
+      "id": "F2-untrusted-screen",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "screen_batch",
+      "args": [
+        0,
+        "https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/3c232aedd36da5cb0b896b5aff7dd2527a32aa91/test-fixtures/batch-affected.json",
+        "00f8eb8729d0f7abd08885f986e3bfacd5c1f205516fe79bc75a1ac94e025c80"
+      ],
+      "expected": "ATTESTOR_ONLY",
+      "status": "VERIFIED",
+      "hash": "0x9618c5cf9d4f6d0aaa64a3e787e6f8386056f4fcec18b5ac4813a2fbc8e68049",
+      "actual": "ATTESTOR_ONLY",
+      "readback": {
+        "counts": "0|0"
+      }
+    },
+    {
+      "id": "F3-nonowner-grant",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "set_attestor",
+      "args": [
+        "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        true
+      ],
+      "expected": "OWNER_ONLY",
+      "status": "VERIFIED",
+      "hash": "0x02cd927d56a75fc17860730d5d5f13a08a144f3ac21db1455777218c19d97992",
+      "actual": "OWNER_ONLY",
+      "readback": {
+        "counts": "0|0"
+      }
+    },
+    {
+      "id": "F4-nonowner-setpublisher",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "set_publisher",
+      "args": [
+        "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        true
+      ],
+      "expected": "OWNER_ONLY",
+      "status": "VERIFIED",
+      "hash": "0xfdbea6efa172f0e19bc6f173464957c64a17f571cb11215201ba6468673eaf25",
+      "actual": "OWNER_ONLY",
+      "readback": {
+        "counts": "0|0"
+      }
+    },
+    {
+      "id": "H1-register",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "register_recall",
+      "args": [
+        "https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json",
+        "32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f"
+      ],
+      "expected": "0",
+      "status": "VERIFIED",
+      "hash": "0x66d21ab4154ec7b1b1848ef440507a7432ed9714d1b4d85be2aacb70fe47af9d",
+      "actual": "0",
+      "readback": {
+        "counts": "1|0",
+        "recall0": "REGISTERED|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE"
+      }
+    },
+    {
+      "id": "F5-wrong-publisher-activate",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "activate_recall",
+      "args": [
+        0
+      ],
+      "expected": "PUBLISHER_ONLY",
+      "status": "VERIFIED",
+      "hash": "0x717d7c6a9f3b9e019cabde9fd7c489b27d67ba98c14a5c0fd6d6f74b8d11e99f",
+      "actual": "PUBLISHER_ONLY",
+      "readback": {
+        "counts": "1|0",
+        "recall0": "REGISTERED|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE"
+      }
+    },
+    {
+      "id": "H2-activate",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "activate_recall",
+      "args": [
+        0
+      ],
+      "expected": "RECALL_ACTIVATED",
+      "status": "VERIFIED",
+      "hash": "0x3b7d9832fef7ef5879066cdb5cd5cce2c4f99dc601e4523a386878749acd2e65",
+      "actual": "RECALL_ACTIVATED",
+      "readback": {
+        "counts": "1|0",
+        "recall0": "ACTIVE|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE"
+      }
+    },
+    {
+      "id": "H3-affected",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "screen_batch",
+      "args": [
+        0,
+        "https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-affected.json",
+        "00f8eb8729d0f7abd08885f986e3bfacd5c1f205516fe79bc75a1ac94e025c80"
+      ],
+      "expected": "0",
+      "status": "VERIFIED",
+      "hash": "0xd3e12a06cf8d60ea62de30fa3f332d4b829683104cb021f34a78ee989dea9284",
+      "actual": "0",
+      "readback": {
+        "counts": "1|1",
+        "recall0": "ACTIVE|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE",
+        "screen0": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-412|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-affected.json|00f8eb8729d0f7abd08885f986e3bfacd5c1f205516fe79bc75a1ac94e025c80|0:1d737818d01c25c93fd93ae02909af155cab55aad20dec44ae712a7eba05372f|AFFECTED|WITHIN_STRUCTURED_BOUNDARY"
+      }
+    },
+    {
+      "id": "H4-outside",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "screen_batch",
+      "args": [
+        0,
+        "https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-outside.json",
+        "324a57cd775bcf0e0f04a88ca9c84eeab858e91c9fcfa10568561f6dc959fd34"
+      ],
+      "expected": "1",
+      "status": "VERIFIED",
+      "hash": "0xd0d7d002d632b2cdb3b4f1ba277a69a48d12b9e0c51afa0b622804061a8b1b1f",
+      "actual": "1",
+      "readback": {
+        "counts": "1|2",
+        "recall0": "ACTIVE|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE",
+        "screen0": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-412|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-affected.json|00f8eb8729d0f7abd08885f986e3bfacd5c1f205516fe79bc75a1ac94e025c80|0:1d737818d01c25c93fd93ae02909af155cab55aad20dec44ae712a7eba05372f|AFFECTED|WITHIN_STRUCTURED_BOUNDARY",
+        "screen1": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-950|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-outside.json|324a57cd775bcf0e0f04a88ca9c84eeab858e91c9fcfa10568561f6dc959fd34|0:c6dfb5075e1b731a3750d97c98904c384e9f4da3956a6523c877c3e51e305131|NOT_AFFECTED|OUTSIDE_STRUCTURED_BOUNDARY"
+      }
+    },
+    {
+      "id": "A1-canonical-duplicate",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "screen_batch",
+      "args": [
+        0,
+        "https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-affected-alternate.json",
+        "67da7568d7cde0389235b51b0f1a01383876dd07cc9dda223db2d1752db3f4dd"
+      ],
+      "expected": "DUPLICATE_SCREEN",
+      "status": "VERIFIED",
+      "hash": "0xd86c98f5b501a0132dd4cc16ac7247f6bbcb784f2903307bf574f3dbf7eb9570",
+      "actual": "DUPLICATE_SCREEN",
+      "readback": {
+        "counts": "1|2",
+        "recall0": "ACTIVE|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE",
+        "screen0": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-412|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-affected.json|00f8eb8729d0f7abd08885f986e3bfacd5c1f205516fe79bc75a1ac94e025c80|0:1d737818d01c25c93fd93ae02909af155cab55aad20dec44ae712a7eba05372f|AFFECTED|WITHIN_STRUCTURED_BOUNDARY",
+        "screen1": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-950|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-outside.json|324a57cd775bcf0e0f04a88ca9c84eeab858e91c9fcfa10568561f6dc959fd34|0:c6dfb5075e1b731a3750d97c98904c384e9f4da3956a6523c877c3e51e305131|NOT_AFFECTED|OUTSIDE_STRUCTURED_BOUNDARY"
+      }
+    },
+    {
+      "id": "H5-register-replacement",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "register_recall",
+      "args": [
+        "https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json",
+        "32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f"
+      ],
+      "expected": "1",
+      "status": "VERIFIED",
+      "hash": "0xc140cea2c216fbbf1f4b0c612ce3f196941b9d806fe8ea4415e6c1d3f0219ac5",
+      "actual": "1",
+      "readback": {
+        "counts": "2|2",
+        "recall0": "ACTIVE|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE",
+        "recall1": "REGISTERED|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE",
+        "screen0": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-412|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-affected.json|00f8eb8729d0f7abd08885f986e3bfacd5c1f205516fe79bc75a1ac94e025c80|0:1d737818d01c25c93fd93ae02909af155cab55aad20dec44ae712a7eba05372f|AFFECTED|WITHIN_STRUCTURED_BOUNDARY",
+        "screen1": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-950|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-outside.json|324a57cd775bcf0e0f04a88ca9c84eeab858e91c9fcfa10568561f6dc959fd34|0:c6dfb5075e1b731a3750d97c98904c384e9f4da3956a6523c877c3e51e305131|NOT_AFFECTED|OUTSIDE_STRUCTURED_BOUNDARY"
+      }
+    },
+    {
+      "id": "H6-activate-replacement",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "activate_recall",
+      "args": [
+        1
+      ],
+      "expected": "RECALL_ACTIVATED",
+      "status": "VERIFIED",
+      "hash": "0xe8eb1ba0232c7439280e6c43266fbc32de07d63fe4d21b4a74a1ad45650a4ffc",
+      "actual": "RECALL_ACTIVATED",
+      "readback": {
+        "counts": "2|2",
+        "recall0": "ACTIVE|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE",
+        "recall1": "ACTIVE|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE",
+        "screen0": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-412|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-affected.json|00f8eb8729d0f7abd08885f986e3bfacd5c1f205516fe79bc75a1ac94e025c80|0:1d737818d01c25c93fd93ae02909af155cab55aad20dec44ae712a7eba05372f|AFFECTED|WITHIN_STRUCTURED_BOUNDARY",
+        "screen1": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-950|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-outside.json|324a57cd775bcf0e0f04a88ca9c84eeab858e91c9fcfa10568561f6dc959fd34|0:c6dfb5075e1b731a3750d97c98904c384e9f4da3956a6523c877c3e51e305131|NOT_AFFECTED|OUTSIDE_STRUCTURED_BOUNDARY"
+      }
+    },
+    {
+      "id": "H7-supersede",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "supersede_recall",
+      "args": [
+        0,
+        1
+      ],
+      "expected": "RECALL_SUPERSEDED",
+      "status": "VERIFIED",
+      "hash": "0x4b11290878c01916bcf40a35690c0e2469f9cb8801153c670f895b04c6be5845",
+      "actual": "RECALL_SUPERSEDED",
+      "readback": {
+        "counts": "2|2",
+        "recall0": "SUPERSEDED|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|1",
+        "recall1": "ACTIVE|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE",
+        "screen0": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-412|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-affected.json|00f8eb8729d0f7abd08885f986e3bfacd5c1f205516fe79bc75a1ac94e025c80|0:1d737818d01c25c93fd93ae02909af155cab55aad20dec44ae712a7eba05372f|AFFECTED|WITHIN_STRUCTURED_BOUNDARY",
+        "screen1": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-950|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-outside.json|324a57cd775bcf0e0f04a88ca9c84eeab858e91c9fcfa10568561f6dc959fd34|0:c6dfb5075e1b731a3750d97c98904c384e9f4da3956a6523c877c3e51e305131|NOT_AFFECTED|OUTSIDE_STRUCTURED_BOUNDARY"
+      }
+    },
+    {
+      "id": "F6-old-campaign-screen",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "screen_batch",
+      "args": [
+        0,
+        "https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-outside.json",
+        "324a57cd775bcf0e0f04a88ca9c84eeab858e91c9fcfa10568561f6dc959fd34"
+      ],
+      "expected": "RECALL_NOT_ACTIVE",
+      "status": "VERIFIED",
+      "hash": "0xeae11a7e80d0c4f878bc72a28fd2d2906ec5cc7741fbda5e425a4c55f9a658e5",
+      "actual": "RECALL_NOT_ACTIVE",
+      "readback": {
+        "counts": "2|2",
+        "recall0": "SUPERSEDED|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|1",
+        "recall1": "ACTIVE|0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/recall-eu.json|32f99914f57f2ad8c9aabbaaca8c17f2321065c68cbc4c7bb3250e12cfebdc5f|NONE",
+        "screen0": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-412|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-affected.json|00f8eb8729d0f7abd08885f986e3bfacd5c1f205516fe79bc75a1ac94e025c80|0:1d737818d01c25c93fd93ae02909af155cab55aad20dec44ae712a7eba05372f|AFFECTED|WITHIN_STRUCTURED_BOUNDARY",
+        "screen1": "0|0xA63DE24e30C88FB1019E8956654730316e36eDBE|WAREHOUSE-950|https://raw.githubusercontent.com/dearmore5382/RecallBatch-Boundary-Registry/a7a2a800a45553fed12ab75b9affd46ed79c0f11/test-fixtures/batch-outside.json|324a57cd775bcf0e0f04a88ca9c84eeab858e91c9fcfa10568561f6dc959fd34|0:c6dfb5075e1b731a3750d97c98904c384e9f4da3956a6523c877c3e51e305131|NOT_AFFECTED|OUTSIDE_STRUCTURED_BOUNDARY"
+      }
+    }
+  ],
+  "complete": true
+}

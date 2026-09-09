@@ -25,6 +25,11 @@ npm run lint
 npm run build
 ```
 
-## Superseded deployment
+## Current hardened deployment
 
-`0xE36aE6FF03dFf98c81DA20d19A058e1c991960fc` and its audit demonstrate the earlier permissionless architecture only. It is not the current release and must not be submitted as current evidence. The hardened source requires a new deployment and fresh audit.
+- [Studionet contract](https://explorer-studio.genlayer.com/address/0x1E09EDDbd1dde3eC95f150D02304f542d511132F)
+- [Hardened FINALIZED audit](verification/HARDENED_STUDIONET_AUDIT.md)
+- [Sanitized machine-readable results](verification/live-0x1e09eddbd1dde3ec95f150d02304f542d511132f.json)
+- [Exact source-parity result](verification/preflight-0x1e09eddbd1dde3ec95f150d02304f542d511132f.json)
+
+The earlier permissionless contract `0xE36a…60fc` is superseded and is retained only as historical evidence.
