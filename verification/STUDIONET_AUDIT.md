@@ -1,4 +1,6 @@
-# Studionet adversarial audit
+# Superseded Studionet audit
+
+> This evidence covers the earlier permissionless contract at the address below. It does not cover the current hardened source and must not be presented as current-release evidence.
 
 - Contract: [`0xE36aE6FF03dFf98c81DA20d19A058e1c991960fc`](https://explorer-studio.genlayer.com/address/0xE36aE6FF03dFf98c81DA20d19A058e1c991960fc)
 - Exact deployed/local SHA-256: `bc4468e5d93b6682d40f511e6d09cba8cdb244027a91cf7c584ad40a908ec979`
