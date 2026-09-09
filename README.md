@@ -2,6 +2,12 @@
 
 A non-payable GenLayer dApp for answering one narrow question: does an authorized attestor's authenticated product batch fall inside an authorized publisher's recall boundary?
 
+## Public dApp
+
+- [Cloudflare production deployment](https://recallbatch-boundary-registry.dearmorescheuer5382.workers.dev)
+
+This is the canonical public frontend for the current release. Submission and review links should use this Cloudflare URL.
+
 The contract first fetches exact JSON bytes under `strict_eq`, verifies caller-supplied SHA-256 digests, and validates closed schemas. Manufacturer, product, region, prefix, and numeric lot range are resolved deterministically. AI is used only when an authenticated recall contains a natural-language qualifier, and its output is bounded to `MATCH`, `NO_MATCH`, or `UNCLEAR`.
 
 ## Workflow
@@ -27,6 +33,7 @@ npm run build
 
 ## Current hardened deployment
 
+- [Cloudflare production dApp](https://recallbatch-boundary-registry.dearmorescheuer5382.workers.dev)
 - [Studionet contract](https://explorer-studio.genlayer.com/address/0x1E09EDDbd1dde3eC95f150D02304f542d511132F)
 - [Hardened FINALIZED audit](verification/HARDENED_STUDIONET_AUDIT.md)
 - [Sanitized machine-readable results](verification/live-0x1e09eddbd1dde3ec95f150d02304f542d511132f.json)
