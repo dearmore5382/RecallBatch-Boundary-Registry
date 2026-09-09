@@ -24,4 +24,8 @@ npm run lint
 npm run build
 ```
 
-Deployment evidence will be added only after the exact reviewed source is deployed and live transactions are FINALIZED.
+## Live deployment
+
+- [Studionet contract](https://explorer-studio.genlayer.com/address/0xE36aE6FF03dFf98c81DA20d19A058e1c991960fc)
+- [FINALIZED adversarial audit](verification/STUDIONET_AUDIT.md)
+- [Sanitized machine-readable results](verification/live-0xe36ae6ff03dff98c81da20d19a058e1c991960fc.json)
