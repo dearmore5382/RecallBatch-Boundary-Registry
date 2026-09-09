@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "batch_ref": "ALTERNATE-DOCUMENT-REFERENCE",
+  "issuer": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+  "manufacturer": "AquaPure",
+  "product_code": "X2",
+  "region": "EU",
+  "lot_code": "APX2-240412",
+  "attributes": {
+    "distribution_channel": "retail",
+    "document_note": "Different bytes; same physical batch identity"
+  }
+}

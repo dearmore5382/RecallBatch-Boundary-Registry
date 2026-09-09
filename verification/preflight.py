@@ -2,7 +2,7 @@
 import base64,hashlib,json
 from pathlib import Path
 import requests
-ROOT=Path(__file__).resolve().parents[1];RPC='https://studio.genlayer.com/api';ADDRESS='0xE36aE6FF03dFf98c81DA20d19A058e1c991960fc'
+ROOT=Path(__file__).resolve().parents[1];RPC='https://studio.genlayer.com/api';ADDRESS='0x1E09EDDbd1dde3eC95f150D02304f542d511132F'
 def rpc(method,params):
  r=requests.post(RPC,json={'jsonrpc':'2.0','id':1,'method':method,'params':params},timeout=45);r.raise_for_status();d=r.json()
  if 'error'in d:raise RuntimeError(d['error'])
